@@ -1378,7 +1378,10 @@ class FacebookImpl extends FacebookBaseImpl implements Facebook {
     }
 
     public ResponseList<Comment> getNoteComments(String noteId) throws FacebookException {
-        return getNoteComments(noteId, null);
+        //return getNoteComments(noteId, null);
+    	Reading r = new Reading();
+    	r.limit(100); //TODO test only 1 result
+    	return getNoteComments(noteId, r);
     }
     public ResponseList<Comment> getNoteComments(String noteId, Reading reading) throws FacebookException {
         ensureAuthorizationEnabled();
